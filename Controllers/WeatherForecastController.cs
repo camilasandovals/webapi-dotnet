@@ -37,4 +37,22 @@ public class WeatherForecastController : ControllerBase
     {
         return ListWeatherForecast;
     }
+
+    [HttpPost]
+    public IActionResult Post(WeatherForecast weatherForecast)
+    {
+        ListWeatherForecast.Add(weatherForecast);
+
+        return Ok();
+    }
+
+    [HttpDelete("{index}")]
+    public IActionResult Delete(int index)
+    {
+        ListWeatherForecast.RemoveAt(index);
+
+        return Ok();
+    }
+
+    
 }
