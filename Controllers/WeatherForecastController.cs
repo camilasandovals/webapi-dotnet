@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace webapi_dotnet.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("api/[controller]")]
 public class WeatherForecastController : ControllerBase
 {
     private static readonly string[] Summaries = new[]
@@ -33,7 +33,12 @@ public class WeatherForecastController : ControllerBase
     }
 
     [HttpGet(Name = "GetWeatherForecast")]
-    public IEnumerable<WeatherForecast> Get()
+    [Route("Get/weatherforecast")]
+    [Route("Get/weatherforecast2")]
+    [Route("[action]")] //alows to use the method as a route ej. /get depending on the name given below
+    //http://localhost:5253/api/WeatherForecast/get
+    
+    public IEnumerable<WeatherForecast> Get() //needs to match
     {
         return ListWeatherForecast;
     }

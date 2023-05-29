@@ -18,7 +18,12 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+//app.UseCors();
+
 app.UseAuthorization();
+
+//here go the custom middlewares
+app.UseWelcomePage();
 
 app.MapControllers();
 
