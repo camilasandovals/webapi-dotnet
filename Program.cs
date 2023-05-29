@@ -6,7 +6,8 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddScoped<IHelloWorldService, HelloWorldService>(); //injector configuration of the dependency
+// builder.Services.AddScoped<IHelloWorldService, HelloWorldService>(); //injector configuration of the dependency
+builder.Services.AddScoped<IHelloWorldService>(p => new HelloWorldService());
 
 var app = builder.Build();
 
