@@ -23,7 +23,10 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 //here go the custom middlewares
-app.UseWelcomePage();
+// app.UseWelcomePage();
+
+app.UseTimeMiddleware(); //http://localhost:5253?time
+//http://localhost:5253/api/weatherforecast/get?time
 
 app.MapControllers();
 
